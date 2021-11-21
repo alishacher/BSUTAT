@@ -3,6 +3,7 @@ const chrome = require("selenium-webdriver/chrome");
 const chromeOptions = new chrome.Options();
 chromeOptions.addArguments("test-type");
 chromeOptions.addArguments("start-maximized");
+chromeOptions.addArguments("--headless");
 chromeOptions.addArguments("--no-sandbox");
 chromeOptions.addArguments("--disable-dev-shm-usage");
 const { By, Key } = webdriver;
