@@ -1,6 +1,6 @@
 const webdriver = require('selenium-webdriver');
 const { FlightPage, driver } = require('./FlightPage');
-const { By } = webdriver;
+const { By, Key } = webdriver;
 
 class FlightForm extends FlightPage {
     
@@ -22,7 +22,8 @@ class FlightForm extends FlightPage {
 
     findFlights() {
         if (this.isFlightFormCompleted) {
-            driver.findElement(By.css('div.button_wrp:nth-child(7) > button:nth-child(1)')).click();
+            //driver.findElement(By.css('div.button_wrp:nth-child(7) > button:nth-child(1)')).click();
+            driver.findElement(By.css('div.button_wrp:nth-child(7) > button:nth-child(1)')).sendKeys(Key.ENTER);
             // this.clickByCss('div.button_wrp:nth-child(7) > button:nth-child(1)');
             this.isFlightFormCompleted = false;
         }
