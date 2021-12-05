@@ -14,8 +14,11 @@ class FlightForm extends FlightPage {
     setFlightFormValues() {
         this.chooseTownFrom(this.cityFrom);
         this.chooseTownTo(this.cityTo);
+        driver.sleep(2000);
         this.chooseDateFrom(this.dateFrom);
+        driver.sleep(2000);
         this.chooseDateTo(this.dateTo);
+        driver.sleep(2000);
         this.isFlightFormCompleted = true;
         return this;
     }
@@ -23,6 +26,7 @@ class FlightForm extends FlightPage {
     findFlights() {
         if (this.isFlightFormCompleted) {
             //driver.findElement(By.css('div.button_wrp:nth-child(7) > button:nth-child(1)')).click();
+            driver.sleep(2000);
             driver.findElement(By.css('div.button_wrp:nth-child(7) > button:nth-child(1)')).sendKeys(Key.ENTER);
             // this.clickByCss('div.button_wrp:nth-child(7) > button:nth-child(1)');
             this.isFlightFormCompleted = false;
