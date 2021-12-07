@@ -3,7 +3,7 @@ const chrome = require("selenium-webdriver/chrome");
 const chromeOptions = new chrome.Options();
 chromeOptions.addArguments("test-type");
 chromeOptions.addArguments("start-maximized");
-chromeOptions.addArguments("--headless");
+//chromeOptions.addArguments("--headless");
 chromeOptions.addArguments("--no-sandbox");
 chromeOptions.addArguments("--disable-dev-shm-usage");
 const { By, Key } = webdriver;
@@ -39,14 +39,14 @@ class FlightPage {
     chooseTownFrom(townFrom){
         driver.findElement(By.css('[name="city_from"]')).click();
         driver.findElement(By.css('[name="city_from"]')).sendKeys(townFrom);
-        driver.wait(webdriver.until.elementTextIs(By.css('[name="date_from"]'), townFrom), 100000);
+        driver.wait(webdriver.until.elementTextIs(By.css('[name="city_from"]'), townFrom), 100000);
         driver.findElement(By.css('[name="city_from"]')).sendKeys(Key.ENTER);
     }
 
     chooseTownTo(townTo){
         driver.findElement(By.css('[name="city_to"]')).click();
         driver.findElement(By.css('[name="city_to"]')).sendKeys(townTo);
-        driver.wait(webdriver.until.elementTextIs(By.css('[name="date_from"]'), townTo), 10000);
+        driver.wait(webdriver.until.elementTextIs(By.css('[name="city_to"]'), townTo), 10000);
         driver.findElement(By.css('[name="city_to"]')).sendKeys(Key.ENTER);
     }
 
@@ -59,7 +59,7 @@ class FlightPage {
     chooseDateTo(dateTo){
         driver.findElement(By.css('[name="date_back"]')).click();
         driver.findElement(By.css('[name="date_back"]')).sendKeys(dateTo);
-        driver.wait(webdriver.until.elementTextIs(By.css('[name="date_from"]'), dateTo), 10000);
+        driver.wait(webdriver.until.elementTextIs(By.css('[name="date_back"]'), dateTo), 10000);
     }
 
     clickByCss(css){
