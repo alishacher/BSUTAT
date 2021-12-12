@@ -9,25 +9,24 @@ describe('Test flight site', function() {
 
   beforeEach(function () {
     FlightForm.goToFlightSite(flightSiteUrl);
-    //console.log("afterEach");
+    console.log("afterEach");
   });
 
   afterEach(async function () {
       driver && driver.quit();
-      //console.log("afterEach");
+      console.log("afterEach");
   });
 
    it('Search flight with correct validation', async function() {
+    console.log("flightForm IN");
     FlightForm
     .setFlightFormValues()
     .findFlights();
-
-    //console.log("flightForm");
+    console.log("flightForm OUt");
 
   await waitTableFlights();
-  //console.log("await");
+  console.log("await");
   const isFoundFlight = FlightForm.getFoundFlightsLength('div._3oEEPZKhVtt5yklw3-gSdB');
-
   assert.ok(isFoundFlight);
   })
 })

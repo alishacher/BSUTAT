@@ -4,8 +4,10 @@ const chromeOptions = new chrome.Options();
 chromeOptions.addArguments("test-type");
 chromeOptions.addArguments("start-maximized");
 chromeOptions.addArguments("--headless");
+chromeOptions.addArguments("window-size=1920,1080");
 chromeOptions.addArguments("--no-sandbox");
 chromeOptions.addArguments("--disable-dev-shm-usage");
+chromeOptions.addArguments("--user-agent='Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; Microsoft; Lumia 640 XL LTE) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Mobile Safari/537.36 Edge/12.10166'");
 const { By, Key } = webdriver;
 const driver = new webdriver.Builder().forBrowser('chrome').setChromeOptions(chromeOptions).build();
 
@@ -31,32 +33,26 @@ class FlightPage {
 
     chooseTownFrom(townFrom){
         console.log('chooseTownFrom');
-        driver.findElement(By.css('[name="city_from"]')).click();
-        driver.findElement(By.css('[name="city_from"]')).sendKeys(townFrom);
-        driver.wait(webdriver.until.elementTextIs(By.css('[name="city_from"]'), townFrom), 100000);
-        driver.findElement(By.css('[name="city_from"]')).sendKeys(Key.ENTER);
+        driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/div[1]/div[1]/span/span[1]')).click();
     }
 
     chooseTownTo(townTo){
         console.log('chooseTownTo');
-        driver.findElement(By.css('[name="city_to"]')).click();
-        driver.findElement(By.css('[name="city_to"]')).sendKeys(townTo);
-        driver.wait(webdriver.until.elementTextIs(By.css('[name="city_to"]'), townTo), 10000);
-        driver.findElement(By.css('[name="city_to"]')).sendKeys(Key.ENTER);
+        driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/div[1]/div[2]/span/span[1]')).click();
     }
 
     chooseDateFrom(dateFrom){
         console.log('chooseDateFrom');
-        driver.findElement(By.css('[name="date_from"]')).click();
-        driver.findElement(By.css('[name="date_from"]')).sendKeys(dateFrom);
-        driver.wait(webdriver.until.elementTextIs(By.css('[name="date_from"]'), dateFrom), 10000);
+        driver.findElement(By.css('[class="o33561 o33660 o33655 o33656"]')).click();
+        driver.findElement(By.css('[class="o33561 o33660 o33655 o33656"]')).sendKeys(dateFrom);
+        driver.wait(webdriver.until.elementTextIs(By.css('[class="o33561 o33660 o33655 o33656"]'), dateFrom), 10000);
     }
 
     chooseDateTo(dateTo){
         console.log('chooseDateTo');
-        driver.findElement(By.css('[name="date_back"]')).click();
-        driver.findElement(By.css('[name="date_back"]')).sendKeys(dateTo);
-        driver.wait(webdriver.until.elementTextIs(By.css('[name="date_back"]'), dateTo), 10000);
+        driver.findElement(By.css('[class="o33561 o33665 o33655 o33656"]')).click();
+        driver.findElement(By.css('[class="o33561 o33665 o33655 o33656"]')).sendKeys(dateTo);
+        driver.wait(webdriver.until.elementTextIs(By.css('[class="o33561 o33665 o33655 o33656"]'), dateTo), 10000);
     }
 
     clickByCss(css){

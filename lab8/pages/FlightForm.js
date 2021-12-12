@@ -7,12 +7,12 @@ class FlightForm extends FlightPage {
     isFlightFormCompleted = false;
 
     cityFrom = 'Москва';
-    cityTo = 'Санкт-Петербург';
+    cityTo = 'Сочи';
     dateFrom ='15.02.2022';
     dateTo ='19.02.2022';
 
     setFlightFormValues() {
-        //console.log("setFlightFormValues");
+        console.log("setFlightFormValues");
         this.chooseTownFrom(this.cityFrom);
         this.chooseTownTo(this.cityTo);
         this.chooseDateFrom(this.dateFrom);
@@ -22,9 +22,9 @@ class FlightForm extends FlightPage {
     }
 
     findFlights() {
-        //console.log("findFlights");
+        console.log("findFlights");
         if (this.isFlightFormCompleted) {
-            driver.findElement(By.css('div.button_wrp:nth-child(7) > button:nth-child(1)')).sendKeys(Key.ENTER);
+            driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/button')).click();
             this.isFlightFormCompleted = false;
         }
     }
