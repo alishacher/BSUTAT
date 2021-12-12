@@ -37,6 +37,7 @@ class FlightPage {
     }
 
     chooseTownFrom(townFrom){
+        console.log('HI!');
         driver.findElement(By.css('[name="city_from"]')).click();
         driver.findElement(By.css('[name="city_from"]')).sendKeys(townFrom);
         driver.wait(webdriver.until.elementTextIs(By.css('[name="city_from"]'), townFrom), 100000);
