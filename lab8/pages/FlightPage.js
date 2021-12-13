@@ -13,12 +13,10 @@ const driver = new webdriver.Builder().forBrowser('chrome').setChromeOptions(chr
 
 class FlightPage {
     goToFlightSite(theURL){
-        console.log("goToFlightSite");
         driver.get(theURL);
     }
 
     getFoundFlightsLength(css) {
-        console.log("getFoundFlightsLength");
         return driver.findElement(By.css(css))
         .findElements(By.css('div._3oEEPZKhVtt5yklw3-gSdB > div._3myc0zS07d6p2suflgjuDQ'))
         .then(function(flights){
@@ -27,36 +25,30 @@ class FlightPage {
     }
 
     enterTextByCss(css, searchText){
-        console.log("enterTextByCss");
         driver.findElement(By.css(css)).sendKeys(searchText);
     }
 
     chooseTownFrom(townFrom){
-        console.log('chooseTownFrom');
         driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/div[1]/div[1]/span/span[1]')).click();
     }
 
     chooseTownTo(townTo){
-        console.log('chooseTownTo');
         driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/div[1]/div[2]/span/span[1]')).click();
     }
 
     chooseDateFrom(dateFrom){
-        console.log('chooseDateFrom');
         driver.findElement(By.css('[class="o33561 o33660 o33655 o33656"]')).click();
         driver.findElement(By.css('[class="o33561 o33660 o33655 o33656"]')).sendKeys(dateFrom);
         driver.wait(webdriver.until.elementTextIs(By.css('[class="o33561 o33660 o33655 o33656"]'), dateFrom), 10000);
     }
 
     chooseDateTo(dateTo){
-        console.log('chooseDateTo');
         driver.findElement(By.css('[class="o33561 o33665 o33655 o33656"]')).click();
         driver.findElement(By.css('[class="o33561 o33665 o33655 o33656"]')).sendKeys(dateTo);
         driver.wait(webdriver.until.elementTextIs(By.css('[class="o33561 o33665 o33655 o33656"]'), dateTo), 10000);
     }
 
     clickByCss(css){
-        console.log('clickByCss');
         driver.findElement(By.css(css)).click();
     }
 

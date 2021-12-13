@@ -12,7 +12,6 @@ class FlightForm extends FlightPage {
     dateTo ='19.02.2022';
 
     setFlightFormValues() {
-        console.log("setFlightFormValues");
         this.chooseTownFrom(this.cityFrom);
         this.chooseTownTo(this.cityTo);
         this.chooseDateFrom(this.dateFrom);
@@ -22,7 +21,6 @@ class FlightForm extends FlightPage {
     }
 
     findFlights() {
-        console.log("findFlights");
         if (this.isFlightFormCompleted) {
             driver.findElement(By.xpath('//*[@id="root"]/div/div[2]/div[2]/div/div/div/div/div/div[3]/div/button')).click();
             this.isFlightFormCompleted = false;

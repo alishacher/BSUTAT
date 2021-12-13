@@ -1,5 +1,7 @@
 *.log
 *.db
+*.DS_Store
 
+/node_modules
 /target
 /bin
